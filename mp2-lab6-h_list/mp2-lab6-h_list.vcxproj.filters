@@ -24,10 +24,7 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TLink.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TText.h">
+    <ClInclude Include="T_Stack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -36,12 +33,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="mp2-lab6-h_list.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TLink.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TText.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

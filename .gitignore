@@ -3,6 +3,8 @@
 *.lo
 *.o
 *.obj
+*.opendb
+*vc140*
 
 # Precompiled Headers
 *.gch
