@@ -15,6 +15,10 @@ private:
 	TLink *pFirst, *pCurr;
 	T_Stack <TLink*> path;
 
+	TLink* ReadSection(ifstream& ifs);
+	void PrintSection(TLink *ptemp);
+	void SaveSection(TLink *ptemp, ofstream& ofs);
+
 public:
 	TText(TLink *p=NULL);
 	~TText() {};
@@ -35,6 +39,10 @@ public:
 	void Reset();
 	void GoNext();
 	bool IsEnd();
+
+	void Load(string f_name);
+	void PrintText();
+	void SaveText(string f_name);
 };
 
 

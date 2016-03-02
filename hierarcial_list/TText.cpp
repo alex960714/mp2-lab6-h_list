@@ -145,3 +145,76 @@ void TText::GoNext()
 }
 
 bool TText::IsEnd() {return path.IsEmpty();}
+
+TLink* TText::ReadSection(ifstream& ifs)
+{
+	string _str;
+	TLink *pHead, *ptemp;
+	pHead = new TLink;
+	ptemp = pHead;
+	while (!ifs.eof())
+	{
+		getline(ifs, _str);
+		if (_str[0] == '}')
+			break;
+		if (_str[0] == '{')
+			ptemp->pDown = ReadSection(ifs);
+		else
+		{
+			TLink *p = new TLink(_str.c_str());
+			ptemp->pNext = p;
+			ptemp = p;
+		}
+	}
+	if (pHead->pDown == NULL)
+	{
+		ptemp = pHead->pNext;
+		delete pHead;
+		pHead = ptemp;
+	}
+	return pHead;
+}
+
+void TText::Load(string f_name)
+{
+	ifstream ifs(f_name);
+	pFirst = ReadSection(ifs);
+}
+
+void TText::PrintSection(TLink *ptemp)
+{
+	if (ptemp != NULL)
+	{
+		cout << ptemp->str << endl;
+		if (ptemp->pDown != NULL)
+		{
+			cout << '{' << endl;
+			PrintSection(ptemp->pDown);
+			cout << '}' << endl;
+		}
+		PrintSection(ptemp->pNext);
+	}
+}
+
+void TText::PrintText() { PrintSection(pFirst); }
+
+void TText::SaveSection(TLink *ptemp, ofstream& ofs)
+{
+	if (ptemp != NULL)
+	{
+		ofs << ptemp->str << endl;
+		if (ptemp->pDown != NULL)
+		{
+			ofs << '{' << endl;
+			SaveSection(ptemp->pDown);
+			ofs << '}' << endl;
+		}
+		SaveSection(ptemp->pNext);
+	}
+}
+
+void TText::SaveText(string f_name)
+{
+	ofstream ofs(f_name);
+	SaveSection(pFirst, ofs);
+}

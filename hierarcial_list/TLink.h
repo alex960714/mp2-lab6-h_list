@@ -13,7 +13,7 @@ public:
 	TLink *pNext;
 	TLink *pDown;
 
-	TLink(char *_str=NULL, TLink *_pNext=NULL, TLink *_pDown=NULL);
+	TLink(const char *_str=NULL, TLink *_pNext=NULL, TLink *_pDown=NULL);
 	~TLink() {};
 };
 
