@@ -1,5 +1,6 @@
 #include "TText.h"
 
+
 TText::TText(TLink *p)
 {
 	if (p==NULL)
@@ -121,7 +122,7 @@ void TText::SetLine(char *_str)
 
 void TText::Reset()
 {
-	path.Clear;
+	path.Clear();
 	pCurr=pFirst;
 	if(pCurr!=NULL)
 	{
@@ -206,10 +207,10 @@ void TText::SaveSection(TLink *ptemp, ofstream& ofs)
 		if (ptemp->pDown != NULL)
 		{
 			ofs << '{' << endl;
-			SaveSection(ptemp->pDown);
+			SaveSection(ptemp->pDown,ofs);
 			ofs << '}' << endl;
 		}
-		SaveSection(ptemp->pNext);
+		SaveSection(ptemp->pNext,ofs);
 	}
 }
 

@@ -1,6 +1,8 @@
 #ifndef _T_TEXT_H_
 #define _T_TEXT_H_
 
+#define _CRT_SECURE_NO_WARNINGS
+
 #include "TLink.h"
 #include "T_Stack.h"
 #include <iostream>
