@@ -1,0 +1,21 @@
+﻿Build started 02.03.2016 10:42:43.
+     1>Project "c:\Users\chlenov.a\documents\visual studio 2010\Projects\mp2-lab6-h_list\mp2-lab6-h_list\mp2-lab6-h_list.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Debug\mp2-lab6-h_list.unsuccessfulbuild".
+       ClCompile:
+         All outputs are up-to-date.
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\mp2-lab6-h_list.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt TLink.cpp TText.cpp
+         TText.cpp
+     1>c:\users\chlenov.a\documents\visual studio 2010\projects\mp2-lab6-h_list\mp2-lab6-h_list\ttext.cpp(1): warning C4627: '#include "TText.h"': skipped when looking for precompiled header use
+                 Add directive to 'StdAfx.h' or rebuild precompiled header
+     1>c:\users\chlenov.a\documents\visual studio 2010\projects\mp2-lab6-h_list\mp2-lab6-h_list\ttext.cpp(146): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "StdAfx.h"' to your source?
+         TLink.cpp
+     1>c:\users\chlenov.a\documents\visual studio 2010\projects\mp2-lab6-h_list\mp2-lab6-h_list\tlink.cpp(1): warning C4627: '#include "TLink.h"': skipped when looking for precompiled header use
+                 Add directive to 'StdAfx.h' or rebuild precompiled header
+     1>c:\users\chlenov.a\documents\visual studio 2010\projects\mp2-lab6-h_list\mp2-lab6-h_list\tlink.cpp(11): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "StdAfx.h"' to your source?
+         Generating Code...
+     1>Done Building Project "c:\Users\chlenov.a\documents\visual studio 2010\Projects\mp2-lab6-h_list\mp2-lab6-h_list\mp2-lab6-h_list.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.15
