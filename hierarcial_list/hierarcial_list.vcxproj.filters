@@ -27,10 +27,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TLink.cpp">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы исходного кода</Filter>
     </ClCompile>
     <ClCompile Include="TText.cpp">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
