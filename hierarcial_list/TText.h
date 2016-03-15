@@ -10,6 +10,7 @@
 #include <fstream>
 using namespace std;
 
+class TLink;
 
 class TText
 {
@@ -35,8 +36,8 @@ public:
 	void InsDownSection(char *_str);
 	void DelNextLine();
 	void DelDownLine();
-	void GetLine(char *_str);
-	void SetLine(char *_str);
+	string GetLine();
+	void SetLine(string _str);
 
 	void Reset();
 	void GoNext();

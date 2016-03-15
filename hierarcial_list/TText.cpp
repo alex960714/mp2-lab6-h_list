@@ -108,16 +108,19 @@ void TText::DelDownLine()
 		}
 }
 
-void TText::GetLine(char *_str)
+string TText::GetLine()
 {
+	char _str[MaxLen];
 	if(pCurr!=NULL)
 		strcpy(_str,pCurr->str);
+	return _str;
 }
 
-void TText::SetLine(char *_str)
+void TText::SetLine(string _str)
 {
+	const string s = _str;
 	if(pCurr!=NULL)
-		strcpy(pCurr->str,_str);
+		strcpy(pCurr->str,s.c_str());
 }
 
 void TText::Reset()
