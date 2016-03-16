@@ -5,6 +5,7 @@ TText::TText(TLink *p)
 {
 	if (p==NULL)
 	{
+		
 		TLink *tmp=new TLink;
 		pFirst=tmp;
 	}

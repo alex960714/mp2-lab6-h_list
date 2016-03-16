@@ -1,4 +1,3 @@
 ﻿  stdafx.cpp
   mp2-lab6-h_list.cpp
-hierarcial_list.lib(TLink.obj) : error LNK2001: неразрешенный внешний символ ""public: static struct TTextMem TLink::TextMem" (?TextMem@TLink@@2UTTextMem@@A)"
-C:\Users\Александр\Documents\GitHub\mp2-lab6-h_list\Debug\mp2-lab6-h_list.exe : fatal error LNK1120: неразрешенных внешних элементов: 1
+  mp2-lab6-h_list.vcxproj -> C:\Users\Александр\Documents\GitHub\mp2-lab6-h_list\Debug\mp2-lab6-h_list.exe

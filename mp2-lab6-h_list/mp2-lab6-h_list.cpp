@@ -9,6 +9,7 @@
 #include <fstream>
 using namespace std;
 
+TTextMem TLink::TextMem;
 
 int _tmain(int argc, _TCHAR* argv[])
 {

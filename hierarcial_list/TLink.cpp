@@ -11,6 +11,7 @@ TLink::TLink(const char *_str, TLink *_pNext, TLink *_pDown)
 
 void* TLink::operator new(size_t size)
 {
+	InitMem(size);
 	TLink *tmp = TextMem.pFree;
 if (TextMem.pFree != NULL)
 TextMem.pFree = TextMem.pFree->pNext;
