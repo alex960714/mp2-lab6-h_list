@@ -24,22 +24,39 @@ int _tmain(int argc, _TCHAR* argv[])
 	do
 	{
 		cout << "Выберите номер операции:" << endl;
-		cout << "1. Вывести текст на экран" << endl;
-		cout << "4. Вывести список свободных звеньев" << endl;
-		cout << "5. Сборка \"мусора\"" << endl;
-		cout << "6. Завершение работы" << endl;
+		cout << "1. Ввести новый текст" << endl;
+		cout << "2. Вывести текст на экран" << endl;
+		cout << "3. Вставить строки в текст" << endl;
+		cout << "4. Удалить строки из текста" << endl;
+		cout << "5. Вывести список свободных звеньев" << endl;
+		cout << "6. Сборка \"мусора\"" << endl;
+		cout << "7. Сохранить текст в файл" << endl;
+		cout << "8. Завершение работы" << endl;
 		cin >> p;
 		switch (p)
 		{
-		case '1': t.PrintText();
+		case '1': cout << "Введите имя документа с текстом:" << endl;
+			cin >> str;
+			t.Load(str);
 			break;
-		case '4': TLink::PrintFree();
+		case '2': t.PrintText();
 			break;
-		case '5': TLink::MemClean(t);
-		case '6': break;
+		case '3': cout << "Операция находится в стадии разработки" << endl;
+			break;
+		case '4': cout << "Операция находится в стадии разработки" << endl;
+			break;
+		case '5': TLink::PrintFree();
+			break;
+		case '6': TLink::MemClean(t);
+			break;
+		case '7': cout << "Введите имя документа, в который хотите сохранить текст:" << endl;
+			cin >> str;
+			t.SaveText(str);
+			break;
+		case '8': break;
 		default: cout << "Некорректный ввод! Введите номер операции заново." << endl;
 		}
-	} while (p!='6');
+	} while (p!='8');
 	return 0;
 }
 

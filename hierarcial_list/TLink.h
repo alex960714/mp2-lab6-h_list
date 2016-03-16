@@ -8,7 +8,7 @@
 #include <iostream>
 using namespace std;
 
-const int MaxLen = 81;
+const int MaxLen = 181;
 
 class TLink;
 class TText;

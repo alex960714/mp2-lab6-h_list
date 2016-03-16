@@ -22,6 +22,7 @@ void TLink::operator delete(void* p)
 	TLink *tmp = (TLink*)p;
 	tmp->pNext = TextMem.pFree;
 	TextMem.pFree = tmp;
+	tmp->pDown = NULL;
 }
 
 void TLink::InitMem(int size)

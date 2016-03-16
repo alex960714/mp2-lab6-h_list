@@ -18,8 +18,8 @@ private:
 	TLink *pFirst, *pCurr;
 	T_Stack <TLink*> path;
 
-	TLink* ReadSection(ifstream& ifs);
-	void PrintSection(TLink *ptemp);
+	TLink* ReadSection(ifstream& ifs);  
+	void PrintSection(TLink *ptemp);        
 	void SaveSection(TLink *ptemp, ofstream& ofs);
 
 public:
@@ -30,12 +30,12 @@ public:
 	void GoDownLink();
 	void GoPrevLink();
 	void GoFirstLink();
-	void InsNextLine(char *_str);
-	void InsNextSection(char *_str);
-	void InsDownLine(char *_str);
-	void InsDownSection(char *_str);
-	void DelNextLine();
-	void DelDownLine();
+	void InsNextLine(char *_str);  //вставить строку после данной
+	void InsNextSection(char *_str);  //вставить строку после данной - следующие строки вложить в новую
+	void InsDownLine(char *_str);  //вставить строку под данной строкой
+	void InsDownSection(char *_str);  //вставить строку под данной - следующие строки вложить в новую
+	void DelNextLine();  //удалить следующую строку
+	void DelDownLine();  //удалить нижнюю строку
 	string GetLine();
 	void SetLine(string _str);
 
@@ -43,9 +43,9 @@ public:
 	void GoNext();
 	bool IsEnd();
 
-	void Load(string f_name);
-	void PrintText();
-	void SaveText(string f_name);
+	void Load(string f_name);  //загрузить новый текст
+	void PrintText();  //напечатать текст
+	void SaveText(string f_name);  //сохранить текст в файл
 };
 
 
