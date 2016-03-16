@@ -17,13 +17,29 @@ int _tmain(int argc, _TCHAR* argv[])
 	TLink::InitMem(100);
 	TText t;
 	string str;
-	cout << "Введите имя документа:" << endl;
+	cout << "Введите имя документа с текстом:" << endl;
 	cin >> str;
 	t.Load(str);
-	t.PrintText();
-	TLink::PrintFree();
-	TLink::MemClean(t);
-	TLink::PrintFree();
+	char p;
+	do
+	{
+		cout << "Выберите номер операции:" << endl;
+		cout << "1. Вывести текст на экран" << endl;
+		cout << "4. Вывести список свободных звеньев" << endl;
+		cout << "5. Сборка \"мусора\"" << endl;
+		cout << "6. Завершение работы" << endl;
+		cin >> p;
+		switch (p)
+		{
+		case '1': t.PrintText();
+			break;
+		case '4': TLink::PrintFree();
+			break;
+		case '5': TLink::MemClean(t);
+		case '6': break;
+		default: cout << "Некорректный ввод! Введите номер операции заново." << endl;
+		}
+	} while (p!='6');
 	return 0;
 }
 
