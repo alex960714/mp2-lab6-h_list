@@ -120,7 +120,7 @@ int _tmain(int argc, _TCHAR* argv[])
 				i++;
 			}
 			break;
-		case 7: cout << "Введите номер строки, которую хотите удалить:" << endl;  //исправить
+		case 7: cout << "Введите номер строки, которую хотите удалить:" << endl;  
 			cin >> p1;
 			i++;
 			for (t.Reset(); !t.IsEnd();)
@@ -156,7 +156,7 @@ int _tmain(int argc, _TCHAR* argv[])
 			break;
 		case 9: TLink::PrintFree();
 			break;
-		case 10: TLink::MemClean(t);  //исправить
+		case 10: TLink::MemClean(t);  
 			break;
 		case 11: cout << "Введите имя документа, в который хотите сохранить текст:" << endl;
 			cin >> str;

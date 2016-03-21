@@ -47,6 +47,9 @@ void TLink::MemClean(TText &txt)
 		tmp += txt.GetLine();
 		txt.SetLine(tmp.c_str());
 	}
+	string tmp_s = "+++";
+	tmp_s += txt.GetLine();
+	txt.SetLine(tmp_s.c_str());
 	TLink *tmp = TextMem.pFree;
 	while (tmp != NULL)
 	{
