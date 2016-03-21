@@ -63,7 +63,7 @@ void TText::InsNextSection(char *_str)
 	{
 		TLink *tmp=new TLink(_str);
 	    tmp->pDown=pCurr->pNext;
-	    pCurr->pDown=tmp;
+	    pCurr->pNext=tmp;
 	}
 }
 
