@@ -33,9 +33,11 @@ void TLink::InitMem(int size)
 	TLink *tmp = TextMem.pFirst;
 	for (int i = 0; i < size - 1; i++)
 	{
+		tmp->str[0] = '\0';
 		tmp->pNext = tmp + 1;
 		tmp = tmp + 1;
 	}
+	tmp->str[0] = '\0';
 	tmp->pNext = NULL;
 }
 
@@ -79,19 +81,16 @@ void TLink::PrintFree()
 		cout << "Нет свободных звеньев" << endl;
 	else
 	{
-		cout << "Список свободных звеньев:" << endl;
+		int c = 0;
+		cout << "Список содержимого свободных звеньев:" << endl;
 		while (tmp != NULL)
 		{
-			int i = 0;
-			TLink *t = TextMem.pFirst;
-			while (t != tmp)
-			{
-				t = t + 1;
-				i++;
-			}
-			cout << i << " ";
+			if (tmp->str[0] != '\0')
+				cout << tmp->str << endl;
 			tmp = tmp->pNext;
+			c++;
 		}
+		cout << "Всего - " << c << " свободных звеньев" << endl;
 		cout << endl;
 	}
 }

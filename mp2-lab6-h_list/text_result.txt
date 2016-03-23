@@ -2,18 +2,4 @@ string _str;
 TLink *pHead, *ptemp;
 pHead = new TLink;
 ptemp = pHead;
-while (!ifs.eof())
-{
-getline(ifs, _str);
-if (_str[0] == '}')
-break;
-if (_str[0] == '{')
-ptemp->pDown = ReadSection(ifs);
-}
-if (pHead->pDown == NULL)
-{
-ptemp = pHead->pNext;
-delete pHead;
-pHead = ptemp;
-}
 return pHead;

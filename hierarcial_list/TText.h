@@ -46,6 +46,8 @@ public:
 	void Load(string f_name);  //загрузить новый текст
 	void PrintText();  //напечатать текст
 	void SaveText(string f_name);  //сохранить текст в файл
+
+	void Navigation();
 };
 
 

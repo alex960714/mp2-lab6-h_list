@@ -1,7 +1,7 @@
 #include "TText.h"
 
 
-TText::TText(TLink *p)
+TText::TText(TLink *p): path(100)
 {
 	if (p==NULL)
 	{
@@ -222,4 +222,38 @@ void TText::SaveText(string f_name)
 {
 	ofstream ofs(f_name);
 	SaveSection(pFirst, ofs);
+}
+
+void TText::Navigation()
+{
+	int k;
+	do
+	{
+		cout << "Введите номер действия:" << endl;
+		cout << "1. Перейти на первое звено" << endl;
+		cout << "2. Перейти на следующее звено" << endl;
+		cout << "3. Перейти на вложенное звено" << endl;
+		cout << "4. Перейти на предыдущее звено" << endl;
+		cout << "5. Выход из навигации" << endl;
+		cin >> k;
+		switch (k)
+		{
+		case 1: GoFirstLink();
+			break;
+		case 2: GoNextLink();
+			break;
+		case 3: GoDownLink();
+			break;
+		case 4: GoPrevLink();
+			break;
+		case 5: break;
+		default: cout << "Некорректный ввод! Введите номер операции заново." << endl;
+		}
+		string tmp = ">>> ";
+		tmp += GetLine();
+		SetLine(tmp.c_str());
+		PrintText();
+		SetLine(pCurr->str + 4);
+		cout << endl;
+	} while (k != 5);
 }

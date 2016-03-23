@@ -23,8 +23,6 @@ int _tmain(int argc, _TCHAR* argv[])
 	int p;
 	do
 	{
-		int p1;
-		int i = 1;
 		char st[MaxLen];
 		cout << "Введите номер операции:" << endl;
 		cout << "1. Ввести новый текст" << endl;
@@ -35,10 +33,11 @@ int _tmain(int argc, _TCHAR* argv[])
 		cout << "6. Вставить строку в текст в нижнюю секцию с созданием нижней секции" << endl;
 		cout << "7. Удалить строку из текста в данной секции" << endl;
 		cout << "8. Удалить строку из текста в нижней секции" << endl;
-		cout << "9. Вывести список свободных звеньев" << endl;
-		cout << "10. Сборка \"мусора\"" << endl;
-		cout << "11. Сохранить текст в файл" << endl;
-		cout << "12. Завершение работы" << endl;
+		cout << "9. Навигация по тексту" << endl;
+		cout << "10. Вывести список свободных звеньев" << endl;
+		cout << "11. Сборка \"мусора\"" << endl;
+		cout << "12. Сохранить текст в файл" << endl;
+		cout << "13. Завершение работы" << endl;
 		cin >> p;
 		switch (p)
 		{
@@ -46,127 +45,62 @@ int _tmain(int argc, _TCHAR* argv[])
 			cin >> str;
 			t.Load(str);
 			break;
+
 		case 2: t.PrintText();
 			break;
+
 		case 3: cout << "Введите строку, которую хотите добавить:" << endl;  
 			cin >> st;
-			cout << "Введите номер строки, после которой хотите вставить новую строку:" << endl;
-			cin >> p1;
-			for (t.Reset(); !t.IsEnd();)
-			{
-				if (i == p1)
-				{
-					t.InsNextLine(st);
-					t.PrintText();
-					break;
-				}
-				t.GoNext();
-				if (t.IsEnd())
-					cout << "Такой строки не существует!" << endl;
-				i++;
-			}
+			t.InsNextLine(st);
+			t.PrintText();
 			break;
+
 		case 4: cout << "Введите строку, которую хотите добавить:" << endl;
 			cin >> st;
-			cout << "Введите номер строки, после которой хотите вставить новую строку:" << endl;
-			cin >> p1;
-			for (t.Reset(); !t.IsEnd();)
-			{
-				if (i == p1)
-				{
-					t.InsDownLine(st);
-					t.PrintText();
-					break;
-				}
-				t.GoNext();
-				if (t.IsEnd())
-					cout << "Такой строки не существует!" << endl;
-				i++;
-			}
+			t.InsDownLine(st);
+			t.PrintText();
 			break;
+
 		case 5: cout << "Введите строку, которую хотите добавить:" << endl; 
 			cin >> st;
-			cout << "Введите номер строки, после которой хотите вставить новую строку:" << endl;
-			cin >> p1;
-			for (t.Reset(); !t.IsEnd();)
-			{
-				if (i == p1)
-				{
-					t.InsNextSection(st);
-					t.PrintText();
-					break;
-				}
-				t.GoNext();
-				if (t.IsEnd())
-					cout << "Такой строки не существует!" << endl;
-				i++;
-			}
+			t.InsNextSection(st);
+			t.PrintText();
 			break;
+
 		case 6: cout << "Введите строку, которую хотите добавить:" << endl;
 			cin >> st;
-			cout << "Введите номер строки, после которой хотите вставить новую строку:" << endl;
-			cin >> p1;
-			for (t.Reset(); !t.IsEnd();)
-			{
-				if (i == p1)
-				{
-					t.InsDownSection(st);
-					t.PrintText();
-					break;
-				}
-				t.GoNext();
-				if (t.IsEnd())
-					cout << "Такой строки не существует!" << endl;
-				i++;
-			}
+			t.InsDownSection(st);
+			t.PrintText();
 			break;
-		case 7: cout << "Введите номер строки, которую хотите удалить:" << endl;  
-			cin >> p1;
-			i++;
-			for (t.Reset(); !t.IsEnd();)
-			{
-				if (i == p1)
-				{
-					t.DelNextLine();
-					t.PrintText();
-					break;
-				}
-				t.GoNext();
-				if (t.IsEnd())
-					cout << "Такой строки не существует!" << endl;
-				i++;
-			}
+
+		case 7:	t.DelNextLine();
+			t.PrintText();
 			break;
-		case 8: cout << "Введите номер строки, которую хотите удалить:" << endl;  
-			cin >> p1;
-			i++;
-			for (t.Reset(); !t.IsEnd();)
-			{
-				if (i == p1)
-				{
-					t.DelDownLine();
-					t.PrintText();
-					break;
-				}
-				t.GoNext();
-				if (t.IsEnd())
-					cout << "Такой строки не существует!" << endl;
-				i++;
-			}
+
+		case 8: t.DelDownLine();
+			t.PrintText();
 			break;
-		case 9: TLink::PrintFree();
+
+		case 9: t.Navigation();
 			break;
-		case 10: TLink::MemClean(t);  
+
+		case 10: TLink::PrintFree();
 			break;
-		case 11: cout << "Введите имя документа, в который хотите сохранить текст:" << endl;
+
+		case 11: TLink::MemClean(t);  
+			break;
+
+		case 12: cout << "Введите имя документа, в который хотите сохранить текст:" << endl;
 			cin >> str;
 			t.SaveText(str);
 			break;
-		case 12: break;
+
+		case 13: break;
+
 		default: cout << "Некорректный ввод! Введите номер операции заново." << endl;
 		}
 		cout << endl;
-	} while (p!=12);
+	} while (p!=13);
 	return 0;
 }
 
