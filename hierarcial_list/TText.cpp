@@ -47,41 +47,45 @@ void TText::GoFirstLink()
 	pCurr=pFirst;
 }
 
-void TText::InsNextLine(char *_str)
+void TText::InsNextLine(string _str)
 {
 	if(pCurr!=NULL)
 	{
-		TLink *tmp=new TLink(_str);
+		const string st = _str;  //не знаю зачем, но без этого не работает
+		TLink *tmp=new TLink(st.c_str());
 	    tmp->pNext=pCurr->pNext;
 	    pCurr->pNext=tmp;
 	}
 }
 
-void TText::InsNextSection(char *_str)
+void TText::InsNextSection(string _str)
 {
 	if(pCurr!=NULL)
 	{
-		TLink *tmp=new TLink(_str);
+		const string st = _str;
+		TLink *tmp=new TLink(st.c_str());
 	    tmp->pDown=pCurr->pNext;
 	    pCurr->pNext=tmp;
 	}
 }
 
-void TText::InsDownLine(char*_str)
+void TText::InsDownLine(string _str)
 {
 	if(pCurr!=NULL)
 	{
-		TLink *tmp=new TLink(_str);
+		const string st = _str;
+		TLink *tmp = new TLink(st.c_str());
 	    tmp->pNext=pCurr->pDown;
 	    pCurr->pDown=tmp;
 	}
 }
 
-void TText::InsDownSection(char *_str)
+void TText::InsDownSection(string _str)
 {
 	if(pCurr!=NULL)
 	{
-		TLink *tmp=new TLink(_str);
+		const string st = _str;
+		TLink *tmp = new TLink(st.c_str());
 	    tmp->pDown=pCurr->pDown;
 	    pCurr->pDown=tmp;
 	}
@@ -184,6 +188,7 @@ void TText::Load(string f_name)
 {
 	ifstream ifs(f_name);
 	pFirst = ReadSection(ifs);
+	pCurr = pFirst;
 }
 
 void TText::PrintSection(TLink *ptemp)
@@ -229,6 +234,12 @@ void TText::Navigation()
 	int k;
 	do
 	{
+		string tmp = ">>> ";
+		tmp += GetLine();
+		SetLine(tmp.c_str());
+		PrintText();
+		SetLine(pCurr->str + 4);
+		cout << endl;
 		cout << "Введите номер действия:" << endl;
 		cout << "1. Перейти на первое звено" << endl;
 		cout << "2. Перейти на следующее звено" << endl;
@@ -249,11 +260,5 @@ void TText::Navigation()
 		case 5: break;
 		default: cout << "Некорректный ввод! Введите номер операции заново." << endl;
 		}
-		string tmp = ">>> ";
-		tmp += GetLine();
-		SetLine(tmp.c_str());
-		PrintText();
-		SetLine(pCurr->str + 4);
-		cout << endl;
 	} while (k != 5);
 }

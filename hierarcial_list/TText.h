@@ -30,10 +30,10 @@ public:
 	void GoDownLink();
 	void GoPrevLink();
 	void GoFirstLink();
-	void InsNextLine(char *_str);  //вставить строку после данной
-	void InsNextSection(char *_str);  //вставить строку после данной - следующие строки вложить в новую
-	void InsDownLine(char *_str);  //вставить строку под данной строкой
-	void InsDownSection(char *_str);  //вставить строку под данной - следующие строки вложить в новую
+	void InsNextLine(string _str);  //вставить строку после данной
+	void InsNextSection(string _str);  //вставить строку после данной - следующие строки вложить в новую
+	void InsDownLine(string _str);  //вставить строку под данной строкой
+	void InsDownSection(string _str);  //вставить строку под данной - следующие строки вложить в новую
 	void DelNextLine();  //удалить следующую строку
 	void DelDownLine();  //удалить нижнюю строку
 	string GetLine();
