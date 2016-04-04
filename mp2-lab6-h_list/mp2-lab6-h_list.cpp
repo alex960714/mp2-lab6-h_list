@@ -11,22 +11,18 @@ using namespace std;
 
 TTextMem TLink::TextMem;
 
-void LoadLine();
-string str;
-
 int _tmain(int argc, _TCHAR* argv[])
 {
 	setlocale(LC_CTYPE, "Russian");
 	TLink::InitMem(100);
 	TText t;
+	string str;
 	cout << "¬ведите им€ документа с текстом:" << endl;
 	cin >> str;
 	t.Load(str);
 	int p;
 	do
 	{
-		//char st[MaxLen];
-		//string buffer;
 		cout << "¬ведите номер операции:" << endl;
 		cout << "1. ¬вести новый текст" << endl;
 		cout << "2. ¬ывести текст на экран" << endl;
@@ -52,34 +48,49 @@ int _tmain(int argc, _TCHAR* argv[])
 			t.Load(str);
 			break;
 
-		case 2: t.PrintText();
+		case 2: cout << endl;
+			t.PrintText();
 			break;
 
-		case 3: LoadLine();
+		case 3: cout << "¬ведите текст, который хотите добавить:" << endl;
+			cin.get();
+			getline(cin, str);
 			t.InsNextLine(str);
+			cout << endl;
 			t.PrintText();
 			break;
 
-		case 4: LoadLine();
+		case 4: cout << "¬ведите текст, который хотите добавить:" << endl;
+			cin.get();
+			getline(cin, str);
 			t.InsDownLine(str);
+			cout << endl;
 			t.PrintText();
 			break;
 
-		case 5: LoadLine();
+		case 5: cout << "¬ведите текст, который хотите добавить:" << endl;
+			cin.get();
+			getline(cin, str);
 			t.InsNextSection(str);
+			cout << endl;
 			t.PrintText();
 			break;
 
-		case 6: LoadLine();
+		case 6: cout << "¬ведите текст, который хотите добавить:" << endl;
+			cin.get();
+			getline(cin, str);
 			t.InsDownSection(str);
+			cout << endl;
 			t.PrintText();
 			break;
 
 		case 7:	t.DelNextLine();
+			cout << endl;
 			t.PrintText();
 			break;
 
 		case 8: t.DelDownLine();
+			cout << endl;
 			t.PrintText();
 			break;
 
@@ -87,8 +98,12 @@ int _tmain(int argc, _TCHAR* argv[])
 			cout << t.GetLine() << endl;
 			break;
 
-		case 10: LoadLine();
+		case 10: cout << "¬ведите текст, который хотите добавить:" << endl;
+			cin.get();
+			getline(cin, str);
 			t.SetLine(str);
+			cout << endl;
+			t.PrintText();
 			break;
 
 		case 11: t.Navigation();
@@ -113,11 +128,4 @@ int _tmain(int argc, _TCHAR* argv[])
 		cout << endl;
 	} while (p!=15);
 	return 0;
-}
-
-void LoadLine()
-{
-	cout << "¬ведите текст, который хотите добавить:" << endl;
-	cin.get();
-	getline(cin, str);
 }
