@@ -18,7 +18,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	TText t;
 	string str;
 	cout << "Введите имя документа с текстом:" << endl;
-	cin >> str;
+	getline(cin, str);
 	t.Load(str);
 	int p;
 	do

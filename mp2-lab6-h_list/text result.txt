@@ -1,0 +1,14 @@
+string _str;
+{
+int m=0;
+}
+TLink *pHead, *ptemp;
+pHead = new TLink;
+ptemp = pHead;
+if (pHead->pDown == NULL)
+{
+ptemp = pHead->pNext;
+delete pHead;
+pHead = ptemp;
+}
+return pHead;
